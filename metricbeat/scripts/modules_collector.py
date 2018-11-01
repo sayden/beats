@@ -6,10 +6,7 @@ import six
 # Collects module configs to modules.d
 
 
-def collect(docs_branch):
-
-    base_dir = "module"
-    path = os.path.abspath("module")
+def collect(docs_branch, is_x_pack):
 
     # TODO add module release status if beta or experimental
     header = """# Module: {module}
@@ -17,32 +14,54 @@ def collect(docs_branch):
 
 """
 
-    # Create directory for module confs
-    os.mkdir(os.path.abspath('modules.d'))
+    modules = get_modules_list(is_x_pack)
 
     # Iterate over all modules
-    for module in sorted(os.listdir(base_dir)):
+    for (module, beat_path) in modules:
 
-        module_conf = path + '/' + module + '/_meta/config.yml'
-        if os.path.isfile(module_conf) == False:
+        module_conf_path = beat_path + '/module/' + module + '/_meta/config.yml'
+        if os.path.isfile(module_conf_path) == False:
             continue
 
         module_file = header.format(module=module, docs_branch=docs_branch)
 
-        with open(module_conf) as f:
+        with open(module_conf_path) as f:
             module_file += f.read()
 
         # Write disabled module conf
-        with open(os.path.abspath('modules.d/') + '/' + module + '.yml.disabled', 'w') as f:
+        with open(os.getcwd() + '/modules.d/' + '/' + module + '.yml.disabled', 'w') as f:
             f.write(module_file)
 
+def get_modules_list(is_x_pack):
+    modules = []
+
+    beat_path = os.getcwd()
+    if is_x_pack:
+        # If x_pack_path is defined, path variable points now to xpack beat folder
+        for module in os.listdir(beat_path + "/module"):
+            modules.append((module, beat_path))
+
+        # Create directory in x-pack
+        os.mkdir(beat_path + '/modules.d')
+
+        # Set the path to OSS folder now
+        beat_path = os.path.abspath("../../metricbeat")
+    else:
+        # Create directory in oss
+        os.mkdir(beat_path + '/modules.d')
+
+    for module in os.listdir(beat_path + "/module"):
+        modules.append((module, beat_path))
+
+    return sorted(modules, key=lambda t: t[0])
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Collects modules confs")
     parser.add_argument("--docs_branch", help="Docs branch")
+    parser.add_argument("--is_x_pack", action="store_true")
 
     args = parser.parse_args()
     docs_branch = args.docs_branch
 
-    collect(docs_branch)
+    collect(docs_branch, args.is_x_pack)
