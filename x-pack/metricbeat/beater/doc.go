@@ -2,16 +2,4 @@
 // or more contributor license agreements. Licensed under the Elastic License;
 // you may not use this file except in compliance with the Elastic License.
 
-package main
-
-import (
-	"os"
-
-	"github.com/elastic/beats/x-pack/metricbeat/cmd"
-)
-
-func main() {
-	if err := cmd.RootCmd.Execute(); err != nil {
-		os.Exit(1)
-	}
-}
+package beater
