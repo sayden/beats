@@ -1,14 +1,16 @@
 {
     "@timestamp": "2017-10-12T08:05:34.853Z",
-    "beat": {
+    "agent": {
         "hostname": "host.example.com",
         "name": "host.example.com"
     },
+    "event": {
+        "dataset": "postgresql.database",
+        "duration": 115000,
+        "module": "postgresql"
+    },
     "metricset": {
-        "host": "postgresql:5432",
-        "module": "postgresql",
-        "name": "database",
-        "rtt": 115
+        "name": "database"
     },
     "postgresql": {
         "database": {
@@ -45,5 +47,9 @@
                 "rollback": 0
             }
         }
+    },
+    "service": {
+        "address": "172.26.0.2:5432",
+        "type": "postgresql"
     }
 }
