@@ -111,7 +111,6 @@ func getTestdataFiles(t *testing.T, url, module, metricSet, suffix string) {
 }
 
 func runTest(t *testing.T, file string, module, metricSetName, url, suffix string) {
-
 	// starts a server serving the given file under the given url
 	s := server(t, file, url)
 	defer s.Close()
@@ -168,13 +167,21 @@ func runTest(t *testing.T, file string, module, metricSetName, url, suffix strin
 		}
 	}
 
+	if len(data) == 0 {
+		t.Log(file, module, metricSetName, url, suffix)
+		t.Fail()
+		return
+	}
+
 	// Read expected file
 	expected, err := ioutil.ReadFile(file + expectedExtension)
 	if err != nil {
 		t.Fatalf("could not read file: %s", err)
 	}
 
-	assert.Equal(t, string(expected), string(output))
+	expectedS := strings.Replace(string(expected), "\r\n", "\n", -1)
+	outputS := strings.Replace(string(output), "\r\n", "\n", -1)
+	assert.Equal(t, expectedS, outputS)
 
 	if strings.HasSuffix(file, "docs."+suffix) {
 		writeDataJSON(t, data[0], module, metricSetName)
@@ -236,7 +243,6 @@ func getConfig(module, metricSet, url string) map[string]interface{} {
 
 // server starts a server with a mock output
 func server(t *testing.T, path string, url string) *httptest.Server {
-
 	body, err := ioutil.ReadFile(path)
 	if err != nil {
 		t.Fatalf("could not read file: %s", err)
