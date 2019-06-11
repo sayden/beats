@@ -1,0 +1,7 @@
+# Module: couchdb
+# Docs: https://www.elastic.co/guide/en/beats/metricbeat/master/metricbeat-module-couchdb.html
+
+- module: couchdb
+  metricsets: ["server"]
+  period: 10s
+  hosts: ["192.168.208.5:5984/_node/_local/_stats", "192.168.208.6:5984/_node/_local/_stats", "192.168.208.2:5984/_node/_local/_stats", "192.168.208.3:5984/_node/_local/_stats"]
