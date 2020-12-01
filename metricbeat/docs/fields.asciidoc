@@ -17604,6 +17604,52 @@ Elasticsearch module
 
 
 
+
+*`cluster_state.nodes_hash`*::
++
+--
+type: alias
+
+alias to: elasticsearch.cluster.stats.state.nodes_hash
+
+--
+
+*`cluster_state.version`*::
++
+--
+type: alias
+
+alias to: elasticsearch.cluster.stats.state.version
+
+--
+
+*`cluster_state.master_node`*::
++
+--
+type: alias
+
+alias to: elasticsearch.cluster.stats.state.master_node
+
+--
+
+*`cluster_state.state_uuid`*::
++
+--
+type: alias
+
+alias to: elasticsearch.cluster.stats.state.state_uuid
+
+--
+
+*`cluster_state.status`*::
++
+--
+type: alias
+
+alias to: elasticsearch.cluster.stats.state.status
+
+--
+
 *`timestamp`*::
 +
 --
@@ -17638,6 +17684,269 @@ alias to: elasticsearch.node.id
 type: alias
 
 alias to: elasticsearch.node.name
+
+--
+
+
+*`ccr_auto_follow_stats.number_of_failed_follow_indices`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.auto_follow.failed.follow_indices.count
+
+--
+
+*`ccr_auto_follow_stats.number_of_failed_remote_cluster_state_requests`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.auto_follow.failed.remote_cluster_state_requests.count
+
+--
+
+*`ccr_auto_follow_stats.number_of_successful_follow_indices`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.auto_follow.success.follow_indices.count
+
+--
+
+
+*`ccr_stats.shard_id`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.shard_id
+
+--
+
+*`ccr_stats.remote_cluster`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.remote_cluster
+
+--
+
+*`ccr_stats.leader_index`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.leader.index
+
+--
+
+*`ccr_stats.follower_index`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.follower.index
+
+--
+
+*`ccr_stats.leader_global_checkpoint`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.leader.global_checkpoint
+
+--
+
+*`ccr_stats.leader_max_seq_no`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.leader.max_seq_no
+
+--
+
+*`ccr_stats.follower_global_checkpoint`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.follower.global_checkpoint
+
+--
+
+*`ccr_stats.follower_max_seq_no`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.follower.max_seq_no
+
+--
+
+*`ccr_stats.last_requested_seq_no`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.last_requested_seq_no
+
+--
+
+*`ccr_stats.outstanding_read_requests`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.requests.outstanding.read.count
+
+--
+
+*`ccr_stats.outstanding_write_requests`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.requests.outstanding.write.count
+
+--
+
+*`ccr_stats.write_buffer_operation_count`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.write_buffer.operation.count
+
+--
+
+*`ccr_stats.write_buffer_size_in_bytes`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.write_buffer.size.bytes
+
+--
+
+*`ccr_stats.follower_mapping_version`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.follower.mapping_version
+
+--
+
+*`ccr_stats.follower_settings_version`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.follower.settings_version
+
+--
+
+*`ccr_stats.follower_aliases_version`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.follower.aliases_version
+
+--
+
+*`ccr_stats.total_read_time_millis`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.total_time.read.ms
+
+--
+
+*`ccr_stats.total_read_remote_exec_time_millis`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.total_time.read.remote_exec.ms
+
+--
+
+*`ccr_stats.successful_read_requests`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.requests.successful.read.count
+
+--
+
+*`ccr_stats.failed_read_requests`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.requests.failed.read.count
+
+--
+
+*`ccr_stats.operations_read`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.follower.operations.read.count
+
+--
+
+*`ccr_stats.operations_written`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.follower.operations_written
+
+--
+
+*`ccr_stats.bytes_read`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.bytes_read
+
+--
+
+*`ccr_stats.total_write_time_millis`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.total_time.write.ms
+
+--
+
+*`ccr_stats.successful_write_requests`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.requests.successful.write.count
+
+--
+
+*`ccr_stats.failed_write_requests`*::
++
+--
+type: alias
+
+alias to: elasticsearch.ccr.requests.failed.write.count
 
 --
 
@@ -18186,11 +18495,6 @@ alias to: elasticsearch.index.summary.total.indexing.index.count
 
 --
 
-[float]
-=== elasticsearch
-
-
-
 
 *`elasticsearch.cluster.name`*::
 +
@@ -18270,6 +18574,141 @@ Cross-cluster replication stats
 
 
 
+*`elasticsearch.ccr.remote_cluster`*::
++
+--
+type: keyword
+
+--
+
+*`elasticsearch.ccr.bytes_read`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.ccr.last_requested_seq_no`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.ccr.shard_id`*::
++
+--
+type: integer
+
+--
+
+
+*`elasticsearch.ccr.total_time.read.ms`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.ccr.total_time.read.remote_exec.ms`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.ccr.total_time.write.ms`*::
++
+--
+type: long
+
+--
+
+
+
+*`elasticsearch.ccr.requests.successful.read.count`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.ccr.requests.successful.write.count`*::
++
+--
+type: long
+
+--
+
+
+*`elasticsearch.ccr.requests.failed.read.count`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.ccr.requests.failed.write.count`*::
++
+--
+type: long
+
+--
+
+
+*`elasticsearch.ccr.requests.outstanding.read.count`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.ccr.requests.outstanding.write.count`*::
++
+--
+type: long
+
+--
+
+
+*`elasticsearch.ccr.write_buffer.size.bytes`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.ccr.write_buffer.operation.count`*::
++
+--
+type: long
+
+--
+
+
+
+*`elasticsearch.ccr.auto_follow.failed.follow_indices.count`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.ccr.auto_follow.failed.remote_cluster_state_requests.count`*::
++
+--
+type: long
+
+--
+
+
+*`elasticsearch.ccr.auto_follow.success.follow_indices.count`*::
++
+--
+type: long
+
+--
+
 
 *`elasticsearch.ccr.leader.index`*::
 +
@@ -18287,6 +18726,13 @@ type: keyword
 Maximum sequence number of operation on the leader shard
 
 
+type: long
+
+--
+
+*`elasticsearch.ccr.leader.global_checkpoint`*::
++
+--
 type: long
 
 --
@@ -18342,12 +18788,86 @@ type: long
 
 --
 
+*`elasticsearch.ccr.follower.max_seq_no`*::
++
+--
+Maximum sequence number of operation on the follower shard
+
+
+type: long
+
+--
+
+*`elasticsearch.ccr.follower.mapping_version`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.ccr.follower.settings_version`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.ccr.follower.aliases_version`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.ccr.follower.operations.read.count`*::
++
+--
+type: long
+
+--
+
 [float]
 === cluster.stats
 
 Cluster stats
 
 
+
+
+*`elasticsearch.cluster.stats.state.nodes_hash`*::
++
+--
+type: keyword
+
+--
+
+*`elasticsearch.cluster.stats.state.master_node`*::
++
+--
+type: keyword
+
+--
+
+*`elasticsearch.cluster.stats.state.version`*::
++
+--
+type: keyword
+
+--
+
+*`elasticsearch.cluster.stats.state.state_uuid`*::
++
+--
+type: keyword
+
+--
+
+*`elasticsearch.cluster.stats.state.status`*::
++
+--
+type: keyword
+
+--
 
 *`elasticsearch.cluster.stats.status`*::
 +
@@ -18369,6 +18889,15 @@ Nodes statistics.
 *`elasticsearch.cluster.stats.nodes.count`*::
 +
 --
+type: alias
+
+alias to: elasticsearch.cluster.stats.nodes.stats.count
+
+--
+
+*`elasticsearch.cluster.stats.nodes.stats.count`*::
++
+--
 Total number of nodes in cluster.
 
 
@@ -18379,6 +18908,15 @@ type: long
 *`elasticsearch.cluster.stats.nodes.master`*::
 +
 --
+type: alias
+
+alias to: elasticsearch.cluster.stats.nodes.stats.master
+
+--
+
+*`elasticsearch.cluster.stats.nodes.stats.master`*::
++
+--
 Number of master-eligible nodes in cluster.
 
 
@@ -18387,6 +18925,15 @@ type: long
 --
 
 *`elasticsearch.cluster.stats.nodes.data`*::
++
+--
+type: long
+
+alias to: elasticsearch.cluster.stats.nodes.stats.data
+
+--
+
+*`elasticsearch.cluster.stats.nodes.stats.data`*::
 +
 --
 Number of data nodes in cluster.
@@ -18457,10 +19004,79 @@ Enrich stats
 
 
 
+
+*`elasticsearch.enrich.executing_policy.name`*::
++
+--
+type: keyword
+
+--
+
+
+*`elasticsearch.enrich.executing_policy.task.id`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.enrich.executing_policy.task.task`*::
++
+--
+type: keyword
+
+--
+
+*`elasticsearch.enrich.executing_policy.task.action`*::
++
+--
+type: keyword
+
+--
+
+*`elasticsearch.enrich.executing_policy.task.cancellable`*::
++
+--
+type: boolean
+
+--
+
+*`elasticsearch.enrich.executing_policy.task.parent_task_id`*::
++
+--
+type: keyword
+
+--
+
+
+*`elasticsearch.enrich.executing_policy.task.time.start.ms`*::
++
+--
+type: long
+
+--
+
+*`elasticsearch.enrich.executing_policy.task.time.running.nano`*::
++
+--
+type: long
+
+--
+
 *`elasticsearch.enrich.queue.size`*::
 +
 --
 Number of search requests in the queue.
+
+
+type: long
+
+--
+
+*`elasticsearch.enrich.executed_searches.total`*::
++
+--
+Number of search requests that enrich processors have executed since node startup.
 
 
 type: long
@@ -18482,16 +19098,6 @@ type: long
 +
 --
 Number of outstanding remote requests executed since node startup.
-
-
-type: long
-
---
-
-*`elasticsearch.enrich.executed_searches.total`*::
-+
---
-Number of search requests that enrich processors have executed since node startup.
 
 
 type: long
@@ -26663,6 +27269,16 @@ type: keyword
 +
 --
 Kubernetes node name
+
+
+type: keyword
+
+--
+
+*`kubernetes.node.hostname`*::
++
+--
+Kubernetes hostname as reported by the node’s kernel
 
 
 type: keyword
@@ -36650,10 +37266,134 @@ type: keyword
 *`nats.server.time`*::
 +
 --
+
+deprecated:[8.0.0]
+
 Server time of metric creation
 
 
 type: date
+
+--
+
+[float]
+=== connection
+
+Contains nats connection related metrics
+
+
+
+*`nats.connection.name`*::
++
+--
+The name of the connection
+
+
+type: keyword
+
+--
+
+*`nats.connection.subscriptions`*::
++
+--
+The number of subscriptions in this connection
+
+
+type: integer
+
+--
+
+*`nats.connection.pending_bytes`*::
++
+--
+The number of pending bytes of this connection
+
+
+type: long
+
+format: bytes
+
+--
+
+*`nats.connection.uptime`*::
++
+--
+The period the connection is up (sec)
+
+
+type: long
+
+format: duration
+
+--
+
+*`nats.connection.idle_time`*::
++
+--
+The period the connection is idle (sec)
+
+
+type: long
+
+format: duration
+
+--
+
+[float]
+=== in
+
+The amount of incoming data
+
+
+
+*`nats.connection.in.messages`*::
++
+--
+The amount of incoming messages
+
+
+type: long
+
+--
+
+*`nats.connection.in.bytes`*::
++
+--
+The amount of incoming bytes
+
+
+type: long
+
+format: bytes
+
+--
+
+[float]
+=== out
+
+The amount of outgoing data
+
+
+
+*`nats.connection.out.messages`*::
++
+--
+The amount of outgoing messages
+
+
+type: long
+
+--
+
+*`nats.connection.out.bytes`*::
++
+--
+The amount of outgoing bytes
+
+
+type: long
+
+format: bytes
 
 --
 
@@ -36671,6 +37411,121 @@ The number of currently active clients
 
 
 type: integer
+
+--
+
+[float]
+=== route
+
+Contains nats route related metrics
+
+
+
+*`nats.route.subscriptions`*::
++
+--
+The number of subscriptions in this connection
+
+
+type: integer
+
+--
+
+*`nats.route.remote_id`*::
++
+--
+The remote id on which the route is connected to
+
+
+type: keyword
+
+--
+
+*`nats.route.pending_size`*::
++
+--
+The number of pending routes
+
+
+type: long
+
+--
+
+*`nats.route.port`*::
++
+--
+The port of the route
+
+
+type: integer
+
+--
+
+*`nats.route.ip`*::
++
+--
+The ip of the route
+
+
+type: ip
+
+--
+
+[float]
+=== in
+
+The amount of incoming data
+
+
+
+*`nats.route.in.messages`*::
++
+--
+The amount of incoming messages
+
+
+type: long
+
+--
+
+*`nats.route.in.bytes`*::
++
+--
+The amount of incoming bytes
+
+
+type: long
+
+format: bytes
+
+--
+
+[float]
+=== out
+
+The amount of outgoing data
+
+
+
+*`nats.route.out.messages`*::
++
+--
+The amount of outgoing messages
+
+
+type: long
+
+--
+
+*`nats.route.out.bytes`*::
++
+--
+The amount of outgoing bytes
+
+
+type: long
+
+format: bytes
 
 --
 
@@ -44053,6 +44908,24 @@ type: date
 +
 --
 The SIGCHLD code from the service's main process
+
+type: keyword
+
+--
+
+*`system.service.unit_file.state`*::
++
+--
+The state of the unit file
+
+type: keyword
+
+--
+
+*`system.service.unit_file.vendor_preset`*::
++
+--
+The default state of the unit file
 
 type: keyword
 
